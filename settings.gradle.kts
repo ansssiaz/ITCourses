@@ -1,5 +1,17 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":component:theme")
+
+
+include(":component")
+
+
+include(":feature:log-in")
+
+
+include(":feature")
+
+
 pluginManagement {
     repositories {
         google {

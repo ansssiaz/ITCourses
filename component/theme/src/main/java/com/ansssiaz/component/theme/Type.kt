@@ -1,4 +1,4 @@
-package com.ansssiaz.itcourses.ui.theme
+package com.ansssiaz.component.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

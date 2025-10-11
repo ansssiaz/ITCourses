@@ -46,6 +46,7 @@ android {
 
 dependencies {
     implementation(project(":component:theme"))
+
     implementation(project(":feature:log-in"))
 
     implementation(libs.androidx.core.ktx)

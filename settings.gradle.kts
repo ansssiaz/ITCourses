@@ -1,5 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":component:ui-components")
 include(":component:theme")
 include(":feature:log-in")
 

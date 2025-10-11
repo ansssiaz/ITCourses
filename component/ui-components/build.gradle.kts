@@ -3,17 +3,17 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "com.ansssiaz.feature.log_in"
-    compileSdk = 36
+    namespace = "com.example.ui_components"
+    compileSdk {
+        version = release(36)
+    }
 
     defaultConfig {
-        minSdk = 26
+        minSdk = 24
     }
 
     buildTypes {
@@ -32,21 +32,12 @@ android {
 
 dependencies {
     implementation(project(":component:theme"))
-    implementation(project(":component:ui-components"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.foundation)
-    implementation(libs.androidx.material3)
-    implementation(libs.lifecycle.runtime.compose)
-
-    //DI
-    implementation(libs.dagger.hilt)
-    implementation(libs.androidx.ui.tooling.preview)
-    debugImplementation(libs.androidx.ui.tooling)
-    ksp(libs.dagger.hilt.compiler)
-    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
 }

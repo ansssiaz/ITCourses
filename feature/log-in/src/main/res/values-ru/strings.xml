@@ -9,4 +9,6 @@
     <string name="log_in">Вход</string>
     <string name="email_placeholder">example@gmail.com</string>
     <string name="password_placeholder">Введите пароль</string>
+    <string name="couldnt_open_link">Не удалось открыть ссылку</string>
+    <string name="browser_not_found">Браузер не найден</string>
 </resources>

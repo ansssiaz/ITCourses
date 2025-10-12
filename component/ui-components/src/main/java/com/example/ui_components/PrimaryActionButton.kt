@@ -1,7 +1,7 @@
 package com.example.ui_components
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -25,8 +25,8 @@ fun PrimaryActionButton(
         onClick = { onClick() },
         enabled = enabled,
         modifier = Modifier
-            .fillMaxWidth()
-            .height(56.dp),
+            .fillMaxWidth(),
+        contentPadding = PaddingValues(vertical = 10.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = Green,
             disabledContainerColor = Green.copy(alpha = 0.4f)

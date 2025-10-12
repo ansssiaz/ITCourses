@@ -9,4 +9,6 @@
     <string name="log_in">Log in</string>
     <string name="email_placeholder">example@gmail.com</string>
     <string name="password_placeholder">Enter the password</string>
+    <string name="couldnt_open_link">Couldn\'t open the link</string>
+    <string name="browser_not_found">Browser not found</string>
 </resources>

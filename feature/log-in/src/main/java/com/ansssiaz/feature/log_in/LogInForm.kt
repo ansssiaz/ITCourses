@@ -2,6 +2,7 @@ package com.ansssiaz.feature.log_in
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
@@ -132,7 +133,12 @@ private fun PasswordTextField(
         ),
         trailingIcon = {
             if (password.isNotBlank()) {
-                IconButton(onClick = { onPasswordVisibilityChange(!isPasswordVisible) }) {
+                IconButton(
+                    onClick = { onPasswordVisibilityChange(!isPasswordVisible) },
+                    modifier = Modifier
+                        .size(24.dp)
+                        .padding(0.dp)
+                ) {
                     Icon(
                         painter = if (isPasswordVisible) {
                             painterResource(id = R.drawable.baseline_visibility_off_24)

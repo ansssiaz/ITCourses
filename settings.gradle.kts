@@ -1,5 +1,12 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":shared")
+
+
+include(":component:ui-components")
+include(":component:theme")
+include(":feature:log-in")
+
 pluginManagement {
     repositories {
         google {

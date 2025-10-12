@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="log_in_title">Вход</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="dont_have_account">Нет аккаунта?</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="forgot_password">Забыл пароль</string>
+    <string name="log_in">Вход</string>
+    <string name="email_placeholder">example@gmail.com</string>
+    <string name="password_placeholder">Введите пароль</string>
+    <string name="couldnt_open_link">Не удалось открыть ссылку</string>
+    <string name="browser_not_found">Браузер не найден</string>
+</resources>

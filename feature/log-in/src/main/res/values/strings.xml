@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="log_in_title">Log in</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="forgot_password">I forgot my password</string>
+    <string name="log_in">Log in</string>
+    <string name="email_placeholder">example@gmail.com</string>
+    <string name="password_placeholder">Enter the password</string>
+    <string name="couldnt_open_link">Couldn\'t open the link</string>
+    <string name="browser_not_found">Browser not found</string>
+</resources>

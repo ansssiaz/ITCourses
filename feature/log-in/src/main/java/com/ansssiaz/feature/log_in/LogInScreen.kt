@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,11 +19,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import com.ansssiaz.component.theme.White
+import com.ansssiaz.shared.HomeScreen
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun LogInScreen(
-    //navController: NavController,
+    navController: NavController,
     viewModel: LogInViewModel = hiltViewModel()
 ) {
     Box(
@@ -33,15 +37,15 @@ fun LogInScreen(
     ) {
         val state by viewModel.state.collectAsStateWithLifecycle()
 
-        /* LaunchedEffect(true) {
+         LaunchedEffect(true) {
              viewModel.navigationEvent.collectLatest { event ->
                  when (event) {
-                     LogInViewModel.LogInNavigationEvent.NavigateToHome -> {
-                         navController.navigate(Home)
+                     LogInViewModel.LogInNavigationEvent.NavigateToHomeScreen -> {
+                         navController.navigate(HomeScreen)
                      }
                  }
              }
-         }*/
+         }
 
         Column(
             modifier = Modifier

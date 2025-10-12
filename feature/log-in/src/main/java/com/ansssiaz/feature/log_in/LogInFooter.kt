@@ -42,31 +42,6 @@ fun LogInFooter() {
         onOkClick = { openUrl(context, "https://ok.ru/") })
 }
 
-private fun openUrl(
-    context: Context,
-    url: String,
-) {
-    try {
-        val intent = Intent(Intent.ACTION_VIEW, url.toUri()).apply {
-            addCategory(Intent.CATEGORY_BROWSABLE)
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        }
-        context.startActivity(intent)
-    } catch (_: ActivityNotFoundException) {
-        Toast.makeText(
-            context,
-            context.getString(R.string.browser_not_found),
-            Toast.LENGTH_SHORT
-        ).show()
-    } catch (_: Exception) {
-        Toast.makeText(
-            context,
-            context.getString(R.string.couldnt_open_link),
-            Toast.LENGTH_SHORT
-        ).show()
-    }
-}
-
 @Composable
 private fun SignUpRow() {
     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -97,4 +72,29 @@ private fun ForgotPasswordText() {
         fontWeight = FontWeight.SemiBold,
         modifier = Modifier.clickable { }
     )
+}
+
+private fun openUrl(
+    context: Context,
+    url: String,
+) {
+    try {
+        val intent = Intent(Intent.ACTION_VIEW, url.toUri()).apply {
+            addCategory(Intent.CATEGORY_BROWSABLE)
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        }
+        context.startActivity(intent)
+    } catch (_: ActivityNotFoundException) {
+        Toast.makeText(
+            context,
+            context.getString(R.string.browser_not_found),
+            Toast.LENGTH_SHORT
+        ).show()
+    } catch (_: Exception) {
+        Toast.makeText(
+            context,
+            context.getString(R.string.couldnt_open_link),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 }

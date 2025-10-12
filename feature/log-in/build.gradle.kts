@@ -34,6 +34,8 @@ dependencies {
     implementation(project(":component:theme"))
     implementation(project(":component:ui-components"))
 
+    implementation(project(":shared"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

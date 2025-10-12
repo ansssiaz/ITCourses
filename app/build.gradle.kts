@@ -46,7 +46,7 @@ android {
 
 dependencies {
     implementation(project(":component:theme"))
-
+    implementation(project(":shared"))
     implementation(project(":feature:log-in"))
 
     implementation(libs.androidx.core.ktx)

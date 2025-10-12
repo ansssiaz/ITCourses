@@ -8,9 +8,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.ansssiaz.component.theme.ITCoursesTheme
 import com.ansssiaz.feature.log_in.LogInScreen
+import com.ansssiaz.shared.HomeScreen
+import com.ansssiaz.shared.LogInScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,8 +28,24 @@ class MainActivity : ComponentActivity() {
         setContent {
             ITCoursesTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Box(modifier = Modifier.padding(innerPadding)) {
-                        LogInScreen()
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = LogInScreen,
+                        modifier = Modifier.padding(innerPadding)
+                    ) {
+                        composable<LogInScreen> {
+                            LogInScreen(navController = navController)
+                        }
+
+                        composable<HomeScreen> {
+                            Box(
+                                modifier = Modifier.fillMaxSize(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(text = "Home screen")
+                            }
+                        }
                     }
                 }
             }

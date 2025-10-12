@@ -2,4 +2,7 @@
 <resources>
     <string name="placeholder_default">Enter the text</string>
     <string name="email_error">Incorrect email</string>
+    <string name="main">Main</string>
+    <string name="favourites">Favourites</string>
+    <string name="account">Account</string>
 </resources>

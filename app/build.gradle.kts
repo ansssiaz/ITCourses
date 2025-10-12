@@ -46,8 +46,10 @@ android {
 
 dependencies {
     implementation(project(":component:theme"))
-    implementation(project(":shared"))
+    implementation(project(":component:ui-components"))
+
     implementation(project(":feature:log-in"))
+    implementation(project(":feature:main"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -59,6 +61,7 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.material)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.navigation.compose)
 
     //DI
     implementation(libs.dagger.hilt)

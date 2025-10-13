@@ -45,6 +45,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.hilt.navigation.compose)
 
+    //Работа с сетью
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+
     //Сериализация JSON
     implementation(libs.kotlinx.serialization.json)
 }

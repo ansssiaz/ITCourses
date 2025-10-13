@@ -41,12 +41,15 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
 dependencies {
     implementation(project(":component:theme"))
     implementation(project(":component:ui-components"))
+
+    implementation(project(":shared"))
 
     implementation(project(":feature:log-in"))
     implementation(project(":feature:main"))
@@ -69,11 +72,11 @@ dependencies {
 
     //Работа с сетью
     implementation(libs.retrofit)
+    implementation(libs.logging.interceptor)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
 
     //Сериализация JSON
     implementation(libs.kotlinx.serialization.json)
-
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

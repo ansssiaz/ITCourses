@@ -28,21 +28,22 @@ import com.example.ui_components.PrimaryActionButton
 
 @Composable
 fun LogInForm(
-    state: LogInUiState,
-    viewModel: LogInViewModel
+    email: String,
+    isEmailValid: Boolean,
+    isLogInButtonEnabled: Boolean,
+    password: String,
+    isPasswordVisible: Boolean,
+    onEmailChange: (String) -> Unit,
+    onPasswordChange: (String) -> Unit,
+    onPasswordVisibilityChange: (Boolean) -> Unit,
+    onLogInClick: () -> Unit
 ) {
-    val email = state.email
-    val isEmailValid = state.isEmailValid
-    val isLoginButtonEnabled = state.isLogInButtonEnabled
-    val password = state.password
-    val isPasswordVisible = state.isPasswordVisible
-
     Spacer(modifier = Modifier.size(28.dp))
 
     EmailTextField(
         email = email,
         isEmailValid = isEmailValid,
-        onEmailChange = viewModel::onEmailChange
+        onEmailChange = onEmailChange
     )
 
     Spacer(modifier = Modifier.size(16.dp))
@@ -50,15 +51,15 @@ fun LogInForm(
     PasswordTextField(
         password = password,
         isPasswordVisible = isPasswordVisible,
-        onPasswordChange = viewModel::onPasswordChange,
-        onPasswordVisibilityChange = viewModel::onIsPasswordVisibleChange
+        onPasswordChange = onPasswordChange,
+        onPasswordVisibilityChange = onPasswordVisibilityChange
     )
 
     Spacer(modifier = Modifier.size(24.dp))
 
     LogInButton(
-        isEnabled = isLoginButtonEnabled,
-        onClick = viewModel::onLogInButtonClick
+        isEnabled = isLogInButtonEnabled,
+        onClick = onLogInClick
     )
 }
 

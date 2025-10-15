@@ -1,4 +1,4 @@
-package com.ansssiaz.feature.log_in
+package com.ansssiaz.feature.log_in.viewmodel
 
 data class LogInUiState(
     val email: String = "",

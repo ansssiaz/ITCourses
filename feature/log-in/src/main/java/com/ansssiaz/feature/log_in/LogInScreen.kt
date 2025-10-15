@@ -21,6 +21,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.ansssiaz.component.theme.White
+import com.ansssiaz.feature.log_in.viewmodel.LogInViewModel
 import com.example.ui_components.Destination.Main
 import com.example.ui_components.Destination.LogIn
 import kotlinx.coroutines.flow.collectLatest
@@ -60,8 +61,15 @@ fun LogInScreen(
         ) {
             LogInTitle()
             LogInForm(
-                state = state,
-                viewModel = viewModel
+                email = state.email,
+                password = state.password,
+                isEmailValid = state.isEmailValid,
+                isPasswordVisible = state.isPasswordVisible,
+                isLogInButtonEnabled = state.isLogInButtonEnabled,
+                onLogInClick = viewModel::onLogInButtonClick,
+                onEmailChange = viewModel::onEmailChange,
+                onPasswordChange = viewModel::onPasswordChange,
+                onPasswordVisibilityChange = viewModel::onIsPasswordVisibleChange
             )
             LogInFooter()
         }

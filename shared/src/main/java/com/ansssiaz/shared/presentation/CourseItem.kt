@@ -1,4 +1,4 @@
-package com.ansssiaz.feature.main
+package com.ansssiaz.shared.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -36,10 +36,14 @@ import com.ansssiaz.component.theme.DarkGray
 import com.ansssiaz.component.theme.ExtraLightGray
 import com.ansssiaz.component.theme.Green
 import com.ansssiaz.component.theme.White
+import com.ansssiaz.shared.R
 import com.ansssiaz.shared.domain.Course
 
 @Composable
-fun CourseItem(course: Course) {
+fun CourseItem(
+    course: Course,
+    onAddToFavouritesClick: (Course) -> Unit
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -48,7 +52,10 @@ fun CourseItem(course: Course) {
         colors = CardDefaults.cardColors(containerColor = DarkGray)
     ) {
         Column {
-            CourseImageSection(course = course)
+            CourseImageSection(
+                course = course,
+                onAddToFavouritesClick = onAddToFavouritesClick
+                )
             CourseInformationSection(course)
         }
     }
@@ -56,7 +63,8 @@ fun CourseItem(course: Course) {
 
 @Composable
 fun CourseImageSection(
-    course: Course
+    course: Course,
+    onAddToFavouritesClick: (Course) -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -66,6 +74,7 @@ fun CourseImageSection(
         CourseImage(index = course.imageId)
         FavouriteButton(
             course = course,
+            onAddToFavouritesClick = { onAddToFavouritesClick(course) },
             modifier = Modifier.align(Alignment.TopEnd)
         )
         CourseBadges(
@@ -91,13 +100,14 @@ fun CourseImage(index: Int) {
 @Composable
 fun FavouriteButton(
     course: Course,
+    onAddToFavouritesClick: (Course) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier
             .padding(8.dp)
             .size(28.dp)
-            .clickable { }
+            .clickable { onAddToFavouritesClick(course) }
             .background(
                 color = Color.Black.copy(alpha = 0.3f),
                 shape = CircleShape

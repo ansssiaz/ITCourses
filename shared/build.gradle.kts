@@ -3,8 +3,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.serialization)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -33,6 +35,8 @@ android {
 
 dependencies {
     implementation(project(":util"))
+
+    implementation(project(":component:theme"))
     implementation(project(":component:ui-components"))
 
     implementation(libs.androidx.core.ktx)
@@ -46,10 +50,19 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.hilt.navigation.compose)
 
+    //DI
+    implementation(libs.dagger.hilt)
+    ksp(libs.dagger.hilt.compiler)
+
     //Работа с сетью
     implementation(libs.retrofit)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
 
     //Сериализация JSON
     implementation(libs.kotlinx.serialization.json)
+
+    //БД
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 }

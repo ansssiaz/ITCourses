@@ -1,7 +1,7 @@
 package com.ansssiaz.itcourses
 
 import com.ansssiaz.shared.BASE_URL
-import com.ansssiaz.shared.data.CoursesApi
+import com.ansssiaz.shared.data.network.CoursesApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides

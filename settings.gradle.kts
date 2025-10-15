@@ -1,5 +1,11 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":util")
+
+
+include(":feature:main")
+
+
 include(":shared")
 
 

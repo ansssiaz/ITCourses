@@ -3,12 +3,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.serialization)
 }
 
 android {
-    namespace = "com.example.ui_components"
+    namespace = "com.ansssiaz.itcourses.util"
     compileSdk {
         version = release(36)
     }
@@ -32,18 +30,10 @@ android {
 }
 
 dependencies {
-    implementation(project(":component:theme"))
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.androidx.navigation.compose)
-
-    //Сериализация JSON
-    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

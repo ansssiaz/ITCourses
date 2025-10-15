@@ -2,4 +2,7 @@
 <resources>
     <string name="placeholder_default">Введите текст</string>
     <string name="email_error">Некорректный email</string>
+    <string name="main">Главная</string>
+    <string name="favourites">Избранное</string>
+    <string name="account">Аккаунт</string>
 </resources>

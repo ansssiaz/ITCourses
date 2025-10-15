@@ -41,13 +41,18 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
 dependencies {
     implementation(project(":component:theme"))
+    implementation(project(":component:ui-components"))
+
     implementation(project(":shared"))
+
     implementation(project(":feature:log-in"))
+    implementation(project(":feature:main"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -59,6 +64,7 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.material)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.navigation.compose)
 
     //DI
     implementation(libs.dagger.hilt)
@@ -66,11 +72,11 @@ dependencies {
 
     //Работа с сетью
     implementation(libs.retrofit)
+    implementation(libs.logging.interceptor)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
 
     //Сериализация JSON
     implementation(libs.kotlinx.serialization.json)
-
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

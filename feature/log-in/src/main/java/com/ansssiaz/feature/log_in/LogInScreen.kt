@@ -21,7 +21,8 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.ansssiaz.component.theme.White
-import com.ansssiaz.shared.HomeScreen
+import com.example.ui_components.Destination.Main
+import com.example.ui_components.Destination.LogIn
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
@@ -37,15 +38,19 @@ fun LogInScreen(
     ) {
         val state by viewModel.state.collectAsStateWithLifecycle()
 
-         LaunchedEffect(true) {
-             viewModel.navigationEvent.collectLatest { event ->
-                 when (event) {
-                     LogInViewModel.LogInNavigationEvent.NavigateToHomeScreen -> {
-                         navController.navigate(HomeScreen)
-                     }
-                 }
-             }
-         }
+        LaunchedEffect(true) {
+            viewModel.navigationEvent.collectLatest { event ->
+                when (event) {
+                    LogInViewModel.LogInNavigationEvent.NavigateToMainScreen -> {
+                        navController.navigate(Main) {
+                            popUpTo(LogIn) {
+                                inclusive = true
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         Column(
             modifier = Modifier

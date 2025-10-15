@@ -80,12 +80,12 @@ class LogInViewModel @Inject constructor() : ViewModel() {
     fun onLogInButtonClick() {
         if (state.value.isLogInButtonEnabled) {
             viewModelScope.launch {
-                _navigationEvent.emit(LogInNavigationEvent.NavigateToHomeScreen)
+                _navigationEvent.emit(LogInNavigationEvent.NavigateToMainScreen)
             }
         }
     }
 
     sealed class LogInNavigationEvent {
-        object NavigateToHomeScreen : LogInNavigationEvent()
+        object NavigateToMainScreen : LogInNavigationEvent()
     }
 }

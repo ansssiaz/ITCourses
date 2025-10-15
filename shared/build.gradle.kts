@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":util"))
     implementation(project(":component:ui-components"))
 
     implementation(libs.androidx.core.ktx)

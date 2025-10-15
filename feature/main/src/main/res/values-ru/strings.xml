@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snackbar_action">Повторить</string>
+    <string name="by_date_added">По дате добавления</string>
+    <string name="search_courses">Поиск курсов…</string>
+    <string name="more">Подробнее</string>
+    <string name="by_default">По умолчанию</string>
+</resources>

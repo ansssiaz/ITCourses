@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snackbar_action">Repeat</string>
+    <string name="by_date_added">By date added</string>
+    <string name="search_courses">Search courses…</string>
+    <string name="more">More</string>
+    <string name="by_default">By default</string>
+</resources>

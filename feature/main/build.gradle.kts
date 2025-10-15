@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":util"))
     implementation(project(":component:theme"))
     implementation(project(":component:ui-components"))
 
@@ -50,6 +51,7 @@ dependencies {
     //DI
     implementation(libs.dagger.hilt)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.ui.graphics)
     debugImplementation(libs.androidx.ui.tooling)
     ksp(libs.dagger.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)

@@ -1,4 +1,4 @@
-package com.ansssiaz.feature.log_in
+package com.ansssiaz.feature.log_in.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -58,7 +58,8 @@ class LogInViewModel @Inject constructor() : ViewModel() {
     }
 
     fun isValidEmail(email: String): Boolean {
-        val emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$".toRegex()
+        val emailRegex =
+            "^[A-Za-z0-9]([A-Za-z0-9+_.-]*[A-Za-z0-9])+@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)?\\.[A-Za-z]{2,}$".toRegex()
         return email.matches(emailRegex) && email.isNotBlank()
     }
 

@@ -1,4 +1,4 @@
-package com.ansssiaz.shared.data
+package com.ansssiaz.shared.data.network
 
 import com.ansssiaz.itcourses.util.formatDate
 import com.ansssiaz.itcourses.util.getImageResId

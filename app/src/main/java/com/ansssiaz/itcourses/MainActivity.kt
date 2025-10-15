@@ -23,14 +23,13 @@ import com.ansssiaz.component.theme.ITCoursesTheme
 import com.ansssiaz.component.theme.White
 import com.ansssiaz.feature.log_in.LogInScreen
 import com.ansssiaz.feature.main.MainScreen
-import com.ansssiaz.shared.domain.CoursesRepository
 import com.example.ui_components.Destination.Account
 import com.example.ui_components.BottomNavigationBar
 import com.example.ui_components.Destination.Favourites
 import com.example.ui_components.Destination.Main
 import com.example.ui_components.Destination.LogIn
+import com.feature.favourites.FavouritesScreen
 import dagger.hilt.android.AndroidEntryPoint
-import jakarta.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -87,14 +86,7 @@ class MainActivity : ComponentActivity() {
                         }
 
                         composable<Favourites> {
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(Color.Black),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(text = "Favourites screen", color = White)
-                            }
+                            FavouritesScreen()
                         }
 
                         composable<Account> {

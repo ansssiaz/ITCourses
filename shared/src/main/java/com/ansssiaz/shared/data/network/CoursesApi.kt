@@ -1,4 +1,4 @@
-package com.ansssiaz.shared.data
+package com.ansssiaz.shared.data.network
 
 import retrofit2.http.GET
 import retrofit2.http.Query

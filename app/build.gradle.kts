@@ -53,6 +53,7 @@ dependencies {
 
     implementation(project(":feature:log-in"))
     implementation(project(":feature:main"))
+    implementation(project(":feature:favourites"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -77,6 +78,11 @@ dependencies {
 
     //Сериализация JSON
     implementation(libs.kotlinx.serialization.json)
+
+    //БД
+    implementation(libs.androidx.room.common.jvm)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

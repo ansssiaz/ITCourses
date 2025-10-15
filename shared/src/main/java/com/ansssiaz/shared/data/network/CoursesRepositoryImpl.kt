@@ -1,4 +1,4 @@
-package com.ansssiaz.shared.data
+package com.ansssiaz.shared.data.network
 
 import com.ansssiaz.shared.domain.Course
 import com.ansssiaz.shared.domain.CoursesRepository

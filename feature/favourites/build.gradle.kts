@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.ansssiaz.feature.main"
+    namespace = "com.feature.favourites"
     compileSdk {
         version = release(36)
     }
@@ -30,15 +30,14 @@ android {
     kotlin {
         compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
     }
+
 }
 
 dependencies {
     implementation(project(":util"))
     implementation(project(":component:theme"))
-    implementation(project(":component:ui-components"))
 
     implementation(project(":shared"))
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -56,8 +55,7 @@ dependencies {
     ksp(libs.dagger.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
-    //БД
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
 }

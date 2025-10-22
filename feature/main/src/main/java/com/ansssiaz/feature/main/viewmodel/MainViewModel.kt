@@ -75,22 +75,16 @@ class MainViewModel @Inject constructor(
     fun syncWithFavourites() {
         viewModelScope.launch {
             val favouriteIds = favouritesRepository.getFavouriteIds()
-            _state.update { currentState ->
-                val updatedCourses = currentState.courses.map { course ->
+            updateCoursesState(
+                shouldUpdate = { true },
+                transform = { course ->
                     course.copy(hasLike = favouriteIds.contains(course.id))
                 }
-                val updatedSortedCourses = currentState.sortedCourses.map { course ->
-                    course.copy(hasLike = favouriteIds.contains(course.id))
-                }
-                currentState.copy(
-                    courses = updatedCourses,
-                    sortedCourses = updatedSortedCourses
-                )
-            }
+            )
         }
     }
 
-    fun addToFavourites(course: Course){
+    fun addToFavourites(course: Course) {
         viewModelScope.launch {
             try {
                 if (course.hasLike) {
@@ -99,28 +93,10 @@ class MainViewModel @Inject constructor(
                     favouritesRepository.addToFavourites(course)
                 }
 
-                _state.update { currentState ->
-                    val updatedCourses = currentState.courses.map {
-                        if (it.id == course.id) {
-                            it.copy(hasLike = !course.hasLike)
-                        } else {
-                            it
-                        }
-                    }
-
-                    val updatedSortedCourses = currentState.sortedCourses.map {
-                        if (it.id == course.id) {
-                            it.copy(hasLike = !course.hasLike)
-                        } else {
-                            it
-                        }
-                    }
-
-                    currentState.copy(
-                        courses = updatedCourses,
-                        sortedCourses = updatedSortedCourses
-                    )
-                }
+                updateCoursesState(
+                    shouldUpdate = { it.id == course.id },
+                    transform = { it.copy(hasLike = !course.hasLike) }
+                )
 
             } catch (e: Exception) {
                 _state.update {
@@ -129,6 +105,30 @@ class MainViewModel @Inject constructor(
                     )
                 }
             }
+        }
+    }
+
+    private fun updateCoursesState(
+        shouldUpdate: (Course) -> Boolean,
+        transform: (Course) -> Course
+    ) {
+        _state.update { currentState ->
+            currentState.copy(
+                courses = currentState.courses.map { course ->
+                    if (shouldUpdate(course)) {
+                        transform(course)
+                    } else {
+                        course
+                    }
+                },
+                sortedCourses = currentState.sortedCourses.map { course ->
+                    if (shouldUpdate(course)) {
+                        transform(course)
+                    } else {
+                        course
+                    }
+                }
+            )
         }
     }
 }

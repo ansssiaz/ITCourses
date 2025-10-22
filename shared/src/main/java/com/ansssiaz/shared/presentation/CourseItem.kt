@@ -242,7 +242,7 @@ fun CourseFooter(price: String) {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = "$price ₽",
+            text = stringResource(R.string.price, price),
             color = White,
             fontSize = 16.sp,
             fontWeight = FontWeight.Medium

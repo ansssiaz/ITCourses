@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ansssiaz.shared.UiStateStatus
 import com.ansssiaz.shared.domain.Course
-import com.ansssiaz.shared.domain.FavouritesRepository
+import com.feature.favourites.usecase.DeleteFromFavouritesUseCase
+import com.feature.favourites.usecase.GetFavouritesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FavouritesViewModel @Inject constructor(
-    private val repository: FavouritesRepository
+    private val getFavouritesUseCase: GetFavouritesUseCase,
+    private val deleteFromFavouritesUseCase: DeleteFromFavouritesUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow(FavouritesUiState())
     val state = _state.asStateFlow()
@@ -32,7 +34,7 @@ class FavouritesViewModel @Inject constructor(
 
         viewModelScope.launch {
             try {
-                val favorites = repository.getFavourites()
+                val favorites = getFavouritesUseCase()
                 _state.update {
                     it.copy(
                         courses = favorites,
@@ -53,7 +55,7 @@ class FavouritesViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 if (course.hasLike) {
-                    repository.deleteFromFavourites(course.id)
+                    deleteFromFavouritesUseCase(course.id)
                 }
 
                 _state.update { currentState ->
